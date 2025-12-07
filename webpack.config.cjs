@@ -46,7 +46,8 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         mf_colorpicker: "mf_colorpicker@https://fantastic-mf-colorpicker.netlify.app/remoteEntry.js",
-        mf_colorlist: "mf_colorlist@https://fantastic-mf-colorlist.netlify.app/remoteEntry.js",
+        //mf_colorlist: "mf_colorlist@https://fantastic-mf-colorlist.netlify.app/remoteEntry.js",
+        mf_colorlist:"mf_colorlist@https://mf-colorlist-ts2.netlify.app/remoteEntry.js",
         //mf_colorpicker: "mf_colorpicker@http://localhost:3001/remoteEntry.js",
         //mf_colorlist: "mf_colorlist@http://localhost:3002/remoteEntry.js",
       },
