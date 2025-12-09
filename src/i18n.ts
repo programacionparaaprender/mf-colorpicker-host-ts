@@ -16,12 +16,14 @@ const resources: TranslationResources = {
     translation: {
       colorpicker: "Color Picker",
       presentacion: "Presentation",
+      googlemaps: "Geocerca",
     }
   },
   es: {
     translation: {
       colorpicker: "Selector de Color",
       presentacion: "Presentación",
+      googlemaps: "Geocerca",
     }
   }
 };

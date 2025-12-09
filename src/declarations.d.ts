@@ -23,3 +23,10 @@ declare module "mf_colorpicker/useColors" {
   };
   export default useColors;
 }
+
+declare module "mf_googlemaps_ts/MyGoogleMap" {
+  import React from "react";
+  
+  const MyGoogleMap: React.FC;
+  export default MyGoogleMap;
+}

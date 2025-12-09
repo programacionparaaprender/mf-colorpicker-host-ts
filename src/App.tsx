@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import ColorPicker from "mf_colorpicker/ColorPicker";
 import ColorList from "mf_colorlist/ColorList";
 import useColors from "mf_colorpicker/useColors";
+import MyGoogleMap from "mf_googlemaps_ts/MyGoogleMap";
 import Presentacion from "./Presentacion";
 import i18n from './i18n';
 // Ahora:
@@ -76,6 +77,11 @@ const App: React.FC = () => {
                     {t("presentacion")}
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/googlemaps">
+                    {t("googlemaps")}
+                  </Link>
+                </li>
               </ul>
              
               {/* Selector de idioma */}
@@ -116,6 +122,7 @@ const App: React.FC = () => {
             }
           />
           <Route path="/presentacion" element={<Presentacion />} />
+          <Route path="/googlemaps" element={<MyGoogleMap />} />
         </Routes>
       </div>
     </Router>
