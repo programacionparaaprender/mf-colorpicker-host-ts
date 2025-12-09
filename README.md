@@ -13,6 +13,31 @@ https://udemy.com/course/micro-frontend-arquitectura-de-aplicaciones-web-escalab
 >- npm i --save-dev @types/react-dom
 >- npm install --save-dev typescript @types/react @types/react-dom @babel/preset-typescript
 
+### atomic design 
+src/
+├── components/
+│   ├── atoms/
+│   │   ├── Button/
+│   │   ├── Input/
+│   │   ├── Text/
+│   │   └── Icon/
+│   ├── molecules/
+│   │   ├── SearchBar/
+│   │   ├── ProductCard/
+│   │   └── CartItem/
+│   ├── organisms/
+│   │   ├── Header/
+│   │   ├── ProductGrid/
+│   │   └── ShoppingCart/
+│   ├── templates/
+│   │   ├── MainLayout/
+│   │   └── ProductPageLayout/
+│   └── pages/
+│       ├── HomePage/
+│       └── ProductDetailPage/
+├── App.js
+└── index.js
+
 ### sitio para publicaciones
 https://app.netlify.com/
 

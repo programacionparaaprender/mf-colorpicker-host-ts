@@ -1,0 +1,24 @@
+/* src/components/molecules/CartItem/CartItem.css */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 20px;
+}
+
+.cart-item-total {
+  min-width: 80px;
+  text-align: right;
+}

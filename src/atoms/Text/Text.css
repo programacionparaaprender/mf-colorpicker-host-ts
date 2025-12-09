@@ -1,0 +1,43 @@
+/* src/components/atoms/Text/Text.css */
+.text {
+  display: inline-block;
+}
+
+.text-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.text-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.text-body {
+  font-size: 16px;
+}
+
+.text-caption {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.text-dark {
+  color: #333;
+}
+
+.text-light {
+  color: #6c757d;
+}
+
+.text-primary {
+  color: #007bff;
+}
+
+.text-success {
+  color: #28a745;
+}
+
+.text-bold {
+  font-weight: 700;
+}

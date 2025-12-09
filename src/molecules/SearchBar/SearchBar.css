@@ -1,0 +1,6 @@
+/* src/components/molecules/SearchBar/SearchBar.css */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}

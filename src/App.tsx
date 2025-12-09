@@ -12,6 +12,7 @@ import Presentacion from "./Presentacion";
 import i18n from './i18n';
 // Ahora:
 import { createRoot } from "react-dom/client";
+import HomePage from "./pages/HomePage/HomePage";
 
 // Definir tipos para los componentes externos (ajusta según sea necesario)
 type ColorPickerProps = {
@@ -82,6 +83,11 @@ const App: React.FC = () => {
                     {t("googlemaps")}
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/homepage">
+                    {t("homepage")}
+                  </Link>
+                </li>
               </ul>
              
               {/* Selector de idioma */}
@@ -123,6 +129,7 @@ const App: React.FC = () => {
           />
           <Route path="/presentacion" element={<Presentacion />} />
           <Route path="/googlemaps" element={<MyGoogleMap />} />
+          <Route path="/homepage" element={<HomePage />} />
         </Routes>
       </div>
     </Router>

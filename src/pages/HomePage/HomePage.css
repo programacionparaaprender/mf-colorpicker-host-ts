@@ -1,0 +1,15 @@
+/* src/components/pages/HomePage/HomePage.css */
+.homepage-content {
+  padding: 20px 0 40px;
+}
+
+.page-title {
+  margin-bottom: 30px;
+}
+
+.footer {
+  background: #343a40;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}

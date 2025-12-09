@@ -1,0 +1,21 @@
+/* src/components/templates/MainLayout/MainLayout.css */
+.main-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-content {
+  flex: 1;
+  display: flex;
+  padding: 20px 0;
+}
+
+.layout-main {
+  flex: 1;
+}
+
+.layout-sidebar {
+  width: 350px;
+  padding-left: 30px;
+}
