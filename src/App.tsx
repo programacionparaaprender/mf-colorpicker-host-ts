@@ -34,6 +34,14 @@ type UseColorsReturn = {
   handleSubmitSaveColor: () => void;
 };
 
+const Menu: React.FC = () => {
+  return (
+    <div>
+      
+    </div>
+  );
+}
+
 // Componente principal con tipado
 const App: React.FC = () => {
   const { color, colorListado, handleChangeColor, handleSubmitSaveColor }: UseColorsReturn = useColors();
@@ -106,6 +114,9 @@ const App: React.FC = () => {
           </div>
         </nav>
         
+        
+
+
         <Routes>
           <Route
             path="/"
