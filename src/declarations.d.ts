@@ -1,4 +1,10 @@
 // declarations.d.ts
+declare module "mf_atomicdesign_ts/HomePage" {
+  const HomePage: React.ComponentType<{}>;
+  export default HomePage;
+}
+
+
 declare module "mf_colorlist/ColorList" {
   const ColorList: React.ComponentType<{ lista: string[] }>;
   export default ColorList;

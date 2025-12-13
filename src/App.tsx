@@ -12,7 +12,7 @@ import Presentacion from "./Presentacion";
 import i18n from './i18n';
 // Ahora:
 import { createRoot } from "react-dom/client";
-import HomePage from "./pages/HomePage/HomePage";
+import HomePage from "mf_atomicdesign_ts/HomePage";
 
 // Definir tipos para los componentes externos (ajusta según sea necesario)
 type ColorPickerProps = {
