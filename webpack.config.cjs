@@ -51,6 +51,7 @@ module.exports = {
         mf_colorpicker:"mf_colorpicker@https://mf-colorpicker-ts.netlify.app/remoteEntry.js",
         mf_googlemaps_ts:"mf_googlemaps_ts@https://mf-googlemaps-ts.netlify.app/remoteEntry.js",
         mf_atomicdesign_ts:"mf_atomicdesign_ts@https://mf-atomicdesign-ts.netlify.app/remoteEntry.js",
+        mf_crm_clients:"mf_crm_clients@https://https://mf-crm-clients-ts.netlify.app/remoteEntry.js",
         //mf_colorpicker: "mf_colorpicker@http://localhost:3001/remoteEntry.js",
         //mf_colorlist: "mf_colorlist@http://localhost:3002/remoteEntry.js",
       },
