@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactElement } from "react"
-
+import React from 'react';
 function MensajeConsola() {
     
   const [mensaje, setMensaje] = useState('');

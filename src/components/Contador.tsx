@@ -1,3 +1,4 @@
+import React from 'react';
 function Contador({count}:{count:number}) {
   return (
     <div className="card card-default">

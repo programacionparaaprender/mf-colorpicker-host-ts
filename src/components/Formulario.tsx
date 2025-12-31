@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import React from 'react';
 function Formulario() {
     const [formData, setFormData] = useState({nombre:'', apellido:''});
 const changeText = (event: React.ChangeEvent<HTMLInputElement>) => {

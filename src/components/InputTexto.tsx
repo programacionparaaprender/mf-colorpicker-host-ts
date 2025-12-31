@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import React from 'react';
 function InputTexto() {
   const [texto, setTexto] = useState('');
   const changeText = (event: React.ChangeEvent<HTMLInputElement>) => {

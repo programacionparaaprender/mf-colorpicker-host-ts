@@ -1,3 +1,4 @@
+import React from 'react';
 function Controles({setCount}:{setCount:React.Dispatch<React.SetStateAction<number>>}) {
   return (
     <div className="card">

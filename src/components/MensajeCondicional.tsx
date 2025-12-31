@@ -1,5 +1,5 @@
 import { useState, type ReactElement } from "react"
-
+import React from 'react';
 function MensajeCondicional() {
     const [mensaje, setMensaje] = useState('');
     let texto:ReactElement = <p>No hay mensaje aun</p>
