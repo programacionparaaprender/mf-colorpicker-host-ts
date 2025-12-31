@@ -1,5 +1,7 @@
 ### curso
-https://udemy.com/course/micro-frontend-arquitectura-de-aplicaciones-web-escalables/
+>- https://udemy.com/course/micro-frontend-arquitectura-de-aplicaciones-web-escalables/
+>- https://www.udemy.com/course/curso-basico-de-react-fundamentos/learn/lecture/47885015#overview
+
 
 ###
 >- npm install gh-pages --save-dev
