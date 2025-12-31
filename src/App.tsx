@@ -14,6 +14,8 @@ import i18n from './i18n';
 import { createRoot } from "react-dom/client";
 import HomePage from "mf_atomicdesign_ts/HomePage";
 
+import UserList from "mf_crm_clients_ts/UserList";
+
 // Definir tipos para los componentes externos (ajusta según sea necesario)
 type ColorPickerProps = {
   color: string;
@@ -96,6 +98,11 @@ const App: React.FC = () => {
                     {t("homepage")}
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/userlist">
+                    {t("userlist")}
+                  </Link>
+                </li>
               </ul>
              
               {/* Selector de idioma */}
@@ -141,6 +148,7 @@ const App: React.FC = () => {
           <Route path="/presentacion" element={<Presentacion />} />
           <Route path="/googlemaps" element={<MyGoogleMap />} />
           <Route path="/homepage" element={<HomePage />} />
+          <Route path="/userlist" element={<UserList />} />
         </Routes>
       </div>
     </Router>

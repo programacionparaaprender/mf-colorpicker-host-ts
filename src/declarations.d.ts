@@ -1,4 +1,9 @@
 // declarations.d.ts
+declare module "mf_crm_clients_ts/UserList" {
+  const UserList: React.ComponentType<{}>;
+  export default UserList;
+}
+
 declare module "mf_atomicdesign_ts/HomePage" {
   const HomePage: React.ComponentType<{}>;
   export default HomePage;
