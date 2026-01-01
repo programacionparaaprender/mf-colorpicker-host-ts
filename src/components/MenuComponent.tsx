@@ -136,6 +136,29 @@ const MenuComponent: React.FC = () => {
                             ))}
                         </NavDropdown>
 
+
+                        <li className="nav-item dropdown">
+                            <a 
+                            className="nav-link dropdown-toggle"
+                            href="#" 
+                            role="button" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            Proyectos
+                            </a>
+
+                            <div className={temaSeleccionado == 'tema-oscuro'?'dropdown-menu dropdown-menu-dark':'dropdown-menu dropdown-menu-light'}>
+                            {proyectos_realizados_luis.map((casa) => (
+                                <a className="dropdown-item"
+                                    target="_blank"
+                                    href={casa.href}>
+                                    {casa.nombre}
+                                </a>
+                            ))}
+                            </div>
+                        </li>
+
+
                         </Nav>
                         
                         {/* Buscador */}
