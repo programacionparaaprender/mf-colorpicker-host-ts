@@ -1,123 +1,97 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navbar, Nav, NavDropdown, Container, Form, Button } from 'react-bootstrap';
-import { Link, Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './MenuComponent.css';
-import ColorList from 'mf_colorlist/ColorList';
-import ColorPicker from 'mf_colorpicker/ColorPicker';
-import UserList from 'mf_crm_clients_ts/UserList';
-import HomePage from 'mf_atomicdesign_ts/HomePage';
-import MyGoogleMap from 'mf_googlemaps_ts/MyGoogleMap';
-import Presentacion from '../Presentacion';
 import useColors from 'mf_colorpicker/useColors';
 import { contactosjs, cursosjs, proyectos_realizados_luis } from '../app.state';
 
-// Tipo para el hook useColors (ajusta según la implementación real)
-type UseColorsReturn = {
-  color: string;
-  colorListado: string[];
-  handleChangeColor: (color: string) => void;
-  handleSubmitSaveColor: () => void;
-};
+// ... (definiciones de tipos)
 
 const MenuComponent: React.FC = () => {
-    const { color, colorListado, handleChangeColor, handleSubmitSaveColor }: UseColorsReturn = useColors();
-  
-  const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const [expanded, setExpanded] = useState(false);
+    const [temaSeleccionado, setTemaSeleccionado] = useState<string>('tema-oscuro');
+    const [langs] = useState<string[]>(['es', 'en']);
+    const [temas] = useState([
+        { valor: 'tema-claro', etiqueta: 'Tema Claro' },
+        { valor: 'tema-oscuro', etiqueta: 'Tema Oscuro' }
+    ]);
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const language = e.target.value;
-    console.log(language);
-    i18n.changeLanguage(language);
-  };
+    useEffect(() => {
+        const temaGuardado = localStorage.getItem('tema');
+        if (temaGuardado) {
+            setTemaSeleccionado(temaGuardado);
+            aplicarTema(temaGuardado);
+        } else {
+            aplicarTema('tema-oscuro');
+        }
+        
+        i18n.changeLanguage('es');
+    }, [i18n]);
 
-  const handleSearch = () => {
+    const aplicarTema = (tema: string) => {
+        document.body.classList.remove('tema-claro', 'tema-oscuro');
+        document.body.classList.add(tema);
+    };
 
-  }
- return (
-    <BrowserRouter>
-        <header>
-            <Navbar expand="lg" fixed="top" className='navbar navbar-expand-lg fixed-top navbar-dark bg-dark'>
-                    <Container fluid>
-                        {/* Logo */}
-                        <Navbar.Brand as={Link} to="/">
-                            <img 
+    const cambiarTema = (tema: string) => {
+        setTemaSeleccionado(tema);
+        aplicarTema(tema);
+        localStorage.setItem('tema', tema);
+    };
+
+    const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+        const language = e.target.value;
+        i18n.changeLanguage(language);
+    };
+
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log('Buscando...');
+    };
+
+    const getNavbarClasses = () => {
+        const baseClass = 'navbar navbar-expand-lg fixed-top';
+        if (temaSeleccionado === 'tema-oscuro') {
+            return `${baseClass} navbar-light bg-light`;
+        } else {
+            return `${baseClass} navbar-dark bg-dark`;
+        }
+    };
+
+    return (
+        <header className="container-fluid" style={{ fontStyle: 'italic' }}>
+            <Navbar 
+                expand="lg" 
+                fixed="top" 
+                expanded={expanded}
+                onToggle={(expanded: boolean) => setExpanded(expanded)}
+                className={getNavbarClasses()}
+            >
+                <Container fluid>
+                    {/* Logo */}
+                    <Navbar.Brand as={Link} to="/" onClick={() => setExpanded(false)}>
+                        <img 
                             src="https://reactjs.org/logo-og.png" 
                             width="50" 
                             height="50" 
                             alt="Logo"
-                            />
-                        </Navbar.Brand>
-                        
-                        <Navbar.Toggle aria-controls="navbarSupportedContent" />
+                            style={{ borderRadius: '5px' }}
+                        />
+                    </Navbar.Brand>
                     
-                        <Navbar.Collapse id="navbarSupportedContent">
+                    <Navbar.Toggle 
+                        aria-controls="navbarSupportedContent" 
+                        onClick={() => setExpanded(!expanded)}
+                    />
+                    
+                    <Navbar.Collapse id="navbarSupportedContent">
                         <Nav className="me-auto mb-2 mb-lg-0">
-                        
-                        {/* Inicio */}
-                        <Nav.Item>
-                            <Nav.Link as={Link} to="/">{t('inicio')}</Nav.Link>
-                        </Nav.Item>
-                        {/* Presentación */}
-                        <Nav.Item>
-                            <Nav.Link as={Link} to="/presentacion">{t('presentacion')}</Nav.Link>
-                        </Nav.Item>
-                        {/* Google Maps */}
-                        <Nav.Item>
-                            <Nav.Link as={Link} to="/googlemaps">{t('googlemaps')}</Nav.Link>
-                        </Nav.Item>
-                        {/* Home Page */}
-                        <Nav.Item>
-                            <Nav.Link as={Link} to="/homepage">{t('homepage')}</Nav.Link>
-                        </Nav.Item>
-                        {/* User list */}
-                        <Nav.Item>
-                            <Nav.Link as={Link} to="/userlist">{t('userlist')}</Nav.Link>
-                        </Nav.Item>
-                    {/* Dropdown Cursos */}
-                    <NavDropdown title="Cursos" id="cursos-dropdown">
-                        {cursosjs.map((casa) => (
-                        <NavDropdown.Item 
-                            key={casa.nombre}
-                            as={Link}
-                            to={casa.href}
-                            target={casa.target}
-                        >
-                            {casa.nombre}
-                        </NavDropdown.Item>
-                        ))}
-                    </NavDropdown>
-                
-                        {/* Dropdown Proyectos */}
-                        <NavDropdown title="Proyectos" id="proyectos-dropdown">
-                            {proyectos_realizados_luis.map((casa) => (
-                            <NavDropdown.Item 
-                                key={casa.id}
-                                as={Link}
-                                to={casa.href}
-                                target="_blank"
-                            >
-                                {casa.nombre}
-                            </NavDropdown.Item>
-                            ))}
-                        </NavDropdown>
-                            {/* Dropdown Contactos */}
-                        <NavDropdown title="Contactos" id="contactos-dropdown">
-                            {contactosjs.map((casa) => (
-                            <NavDropdown.Item 
-                                key={casa.id}
-                                as={Link}
-                                to={casa.href}
-                            >
-                                {casa.nombre} - {casa.titulo}
-                            </NavDropdown.Item>
-                            ))}
-                        </NavDropdown>
-                        {/* Acerca de */}
-                        <Nav.Item>
-                            <Nav.Link as={Link} to="/contacto">Acerca de</Nav.Link>
-                        </Nav.Item>
+                            {/* ... tus Nav.Item y NavDropdown ... */}
+                            {/* Asegúrate de que cada Nav.Link o NavDropdown.Item tenga onClick={() => setExpanded(false)} si es necesario */}
                         </Nav>
+                        
                         {/* Buscador */}
                         <Form className="d-flex fst-italic me-3" onSubmit={handleSearch}>
                             <Form.Control
@@ -134,39 +108,43 @@ const MenuComponent: React.FC = () => {
                                 Buscar
                             </Button>
                         </Form>
-                        </Navbar.Collapse>
-                    </Container>
+                        
+                        {/* Selector de Idioma */}
+                        <div className="d-flex align-items-center">
+                            <select 
+                                className="form-select form-select-sm bg-dark text-white border-secondary"
+                                onChange={handleLanguageChange}
+                                style={{ width: '120px' }}
+                                defaultValue="es"
+                            >
+                                {langs.map((lang) => (
+                                    <option key={lang} value={lang}>
+                                        {lang.toUpperCase()}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        
+                        {/* Selector de Tema */}
+                        <div className="d-flex align-items-center ms-3">
+                            <select 
+                                className="form-select form-select-sm bg-dark text-white border-secondary"
+                                value={temaSeleccionado}
+                                onChange={(e) => cambiarTema(e.target.value)}
+                                style={{ width: '120px' }}
+                            >
+                                {temas.map((tema) => (
+                                    <option key={tema.valor} value={tema.valor}>
+                                        {tema.etiqueta}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </Navbar.Collapse>
+                </Container>
             </Navbar>
         </header>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div className="container mt-4">
-                <div className="row">
-                  <div className="col-12 col-md-4 col-xl-4">
-                    <ColorList lista={colorListado} />
-                  </div>
-                  <div className="col-12 col-md-4 col-xl-4">
-                    <ColorPicker
-                      color={color}
-                      colorListado={colorListado}
-                      handleChangeColor={handleChangeColor}
-                      handleSubmitSaveColor={handleSubmitSaveColor}
-                    />
-                  </div>
-                </div>
-              </div>
-            }
-          />
-          <Route path="/presentacion" element={<Presentacion />} />
-          <Route path="/googlemaps" element={<MyGoogleMap />} />
-          <Route path="/homepage" element={<HomePage />} />
-          <Route path="/userlist" element={<UserList />} />
-        </Routes>
-    </BrowserRouter>
-    
-  );
+    );
 };
 
 export default MenuComponent;

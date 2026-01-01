@@ -41,10 +41,56 @@ import MenuComponent from './components/MenuComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App2() {
+  const { color, colorListado, handleChangeColor, handleSubmitSaveColor }: UseColorsReturn = useColors();
+  
+  const { t, i18n } = useTranslation();
+
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const language = e.target.value;
+    console.log(language);
+    i18n.changeLanguage(language);
+  };
   return (
-    <MenuComponent />
+    <I18nextProvider i18n={i18n}>
+      <Router>
+        <div className="App">
+          <MenuComponent />
+          <div className="main-content" style={{ paddingTop: '80px' }}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <div className="container mt-4">
+                    <div className="row">
+                      <div className="col-12 col-md-4 col-xl-4">
+                        <ColorList lista={colorListado} />
+                      </div>
+                      <div className="col-12 col-md-4 col-xl-4">
+                        <ColorPicker
+                          color={color}
+                          colorListado={colorListado}
+                          handleChangeColor={handleChangeColor}
+                          handleSubmitSaveColor={handleSubmitSaveColor}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                }
+              />
+              <Route path="/presentacion" element={<Presentacion />} />
+              <Route path="/googlemaps" element={<MyGoogleMap />} />
+              <Route path="/homepage" element={<HomePage />} />
+              <Route path="/userlist" element={<UserList />} />
+              {/* ... otras rutas ... */}
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </I18nextProvider>
   );
 }
+
+export default App2;
 // Componente principal con tipado
 const App: React.FC = () => {
   const { color, colorListado, handleChangeColor, handleSubmitSaveColor }: UseColorsReturn = useColors();
