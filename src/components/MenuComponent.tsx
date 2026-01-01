@@ -8,6 +8,14 @@ import { contactosjs, cursosjs, proyectos_realizados_luis } from '../app.state';
 
 // ... (definiciones de tipos)
 
+/*
+<NavDropdown
+  title="Cursos"
+  id="cursos-dropdown"
+  menuVariant={temaSeleccionado === 'tema-oscuro' ? 'dark' : 'light'}
+>
+*/
+
 const MenuComponent: React.FC = () => {
     const { t, i18n } = useTranslation();
     const [expanded, setExpanded] = useState(false);
@@ -111,6 +119,22 @@ const MenuComponent: React.FC = () => {
                         <Nav.Item>
                             <Nav.Link as={Link} to="/userlist">{t('userlist')}</Nav.Link>
                         </Nav.Item>
+
+
+                        {/* Dropdown Proyectos */}
+                        <NavDropdown title="Proyectos" id="proyectos-dropdown"
+                            menuVariant={temaSeleccionado === 'tema-oscuro' ? 'dark' : 'light'}>
+                            {proyectos_realizados_luis.map((casa) => (
+                            <NavDropdown.Item 
+                                key={casa.id}
+                                as={Link}
+                                to={casa.href}
+                                target="_blank"
+                            >
+                                {casa.nombre}
+                            </NavDropdown.Item>
+                            ))}
+                        </NavDropdown>
 
                         </Nav>
                         
