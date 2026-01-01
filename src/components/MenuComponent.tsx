@@ -86,7 +86,12 @@ const MenuComponent: React.FC = () => {
                         onClick={() => setExpanded(!expanded)}
                     />
 
-                    {/* Inicio */}
+                    
+                    
+                    <Navbar.Collapse id="navbarSupportedContent">
+                        <Nav className="me-auto mb-2 mb-lg-0">
+                            
+                            {/* Inicio */}
                         <Nav.Item>
                             <Nav.Link as={Link} to="/">{t('inicio')}</Nav.Link>
                         </Nav.Item>
@@ -106,11 +111,7 @@ const MenuComponent: React.FC = () => {
                         <Nav.Item>
                             <Nav.Link as={Link} to="/userlist">{t('userlist')}</Nav.Link>
                         </Nav.Item>
-                    
-                    <Navbar.Collapse id="navbarSupportedContent">
-                        <Nav className="me-auto mb-2 mb-lg-0">
-                            {/* ... tus Nav.Item y NavDropdown ... */}
-                            {/* Asegúrate de que cada Nav.Link o NavDropdown.Item tenga onClick={() => setExpanded(false)} si es necesario */}
+
                         </Nav>
                         
                         {/* Buscador */}
