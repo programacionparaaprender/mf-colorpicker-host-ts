@@ -15,6 +15,7 @@ import { createRoot } from "react-dom/client";
 import HomePage from "mf_atomicdesign_ts/HomePage";
 
 import UserList from "mf_crm_clients_ts/UserList";
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Definir tipos para los componentes externos (ajusta según sea necesario)
 type ColorPickerProps = {
@@ -36,14 +37,14 @@ type UseColorsReturn = {
   handleSubmitSaveColor: () => void;
 };
 
-const Menu: React.FC = () => {
+import MenuComponent from './components/MenuComponent';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function App2() {
   return (
-    <div>
-      
-    </div>
+    <MenuComponent />
   );
 }
-
 // Componente principal con tipado
 const App: React.FC = () => {
   const { color, colorListado, handleChangeColor, handleSubmitSaveColor }: UseColorsReturn = useColors();
@@ -158,7 +159,7 @@ const App: React.FC = () => {
 // Componente wrapper con tipado
 const AppWithProvider: React.FC = () => (
   <I18nextProvider i18n={i18n}>
-    <App />
+    <App2 />
   </I18nextProvider>
 );
 

@@ -5,14 +5,14 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build:tsc": "tsc --noEmit", 
-    "type-check": "tsc --noEmit --watch", 
+    "build:tsc": "tsc --noEmit",
+    "type-check": "tsc --noEmit --watch",
     "build:start": "cd dist && PORT=3000 npx serve",
     "start": "webpack serve --mode development",
     "start:live": "webpack serve --open --mode development --live-reload --hot",
     "github2": "ng build --configuration production --base-href=/mf-colorpicker-host/ && npx angular-cli-ghpages --dir=dist/mf-colorpicker-host --branch=gh-pages",
     "github": "npm run build && gh-pages -d dist -b gh-pages",
-    "lint": "eslint src --ext .ts,.tsx", 
+    "lint": "eslint src --ext .ts,.tsx",
     "prebuild": "npm run build:tsc"
   },
   "license": "MIT",
@@ -48,6 +48,7 @@
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
     "react": "^18.3.1",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^18.3.1",
     "react-i18next": "^16.3.5",
     "react-router-dom": "^7.9.6"

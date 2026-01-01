@@ -1,0 +1,67 @@
+/* Estilos para los temas */
+.tema-claro {
+  --navbar-bg: #f8f9fa;
+  --navbar-color: #212529;
+  --dropdown-bg: #ffffff;
+  --dropdown-color: #212529;
+}
+
+.tema-oscuro {
+  --navbar-bg: #212529;
+  --navbar-color: #f8f9fa;
+  --dropdown-bg: #343a40;
+  --dropdown-color: #f8f9fa;
+}
+
+/* Aplicar variables a los componentes */
+.navbar-light {
+  background-color: var(--navbar-bg) !important;
+  color: var(--navbar-color) !important;
+}
+
+.navbar-dark {
+  background-color: var(--navbar-bg) !important;
+  color: var(--navbar-color) !important;
+}
+
+.dropdown-menu-dark {
+  background-color: var(--dropdown-bg) !important;
+  color: var(--dropdown-color) !important;
+}
+
+.dropdown-menu-light {
+  background-color: var(--dropdown-bg) !important;
+  color: var(--dropdown-color) !important;
+}
+
+/* Estilos adicionales */
+.navbar-brand img {
+  border-radius: 5px;
+}
+
+.nav-link {
+  font-style: italic;
+}
+
+.form-select {
+  font-style: italic;
+}
+
+.btn-outline-secondary {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Asegurar que el header no se solape con el contenido */
+header {
+  margin-bottom: 80px; /* Ajusta según la altura de tu navbar */
+}
+
+.navbar.fixed-top {
+  z-index: 1030;
+}
