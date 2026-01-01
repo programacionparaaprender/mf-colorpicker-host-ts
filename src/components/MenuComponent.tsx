@@ -37,8 +37,7 @@ const MenuComponent: React.FC = () => {
  return (
     <BrowserRouter>
         <header>
-            <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-                <Navbar expand="lg" fixed="top" className='navbar navbar-expand-lg fixed-top navbar-dark bg-dark'>
+            <Navbar expand="lg" fixed="top" className='navbar navbar-expand-lg fixed-top navbar-dark bg-dark'>
                     <Container fluid>
                         {/* Logo */}
                         <Navbar.Brand as={Link} to="/">
@@ -137,8 +136,7 @@ const MenuComponent: React.FC = () => {
                         </Form>
                         </Navbar.Collapse>
                     </Container>
-                </Navbar>
-            </nav>
+            </Navbar>
         </header>
         <Routes>
           <Route
