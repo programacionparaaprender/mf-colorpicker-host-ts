@@ -15,7 +15,7 @@ import { createRoot } from "react-dom/client";
 import HomePage from "mf_atomicdesign_ts/HomePage";
 
 import UserList from "mf_crm_clients_ts/UserList";
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Definir tipos para los componentes externos (ajusta según sea necesario)
 type ColorPickerProps = {
