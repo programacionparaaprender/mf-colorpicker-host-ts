@@ -30,6 +30,10 @@ const MenuComponent: React.FC = () => {
     console.log(language);
     i18n.changeLanguage(language);
   };
+
+  const handleSearch = () => {
+    
+  }
  return (
     <BrowserRouter>
         <header>
