@@ -64,7 +64,7 @@ const MenuComponent: React.FC = () => {
                         </Nav.Item>
                         {/* Home Page */}
                         <Nav.Item>
-                            <Nav.Link as={Link} to="/homepage">{t('googlemaps')}</Nav.Link>
+                            <Nav.Link as={Link} to="/homepage">{t('homepage')}</Nav.Link>
                         </Nav.Item>
                         {/* User list */}
                         <Nav.Item>
