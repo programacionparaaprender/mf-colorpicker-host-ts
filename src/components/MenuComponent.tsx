@@ -16,7 +16,7 @@ import { contactosjs, cursosjs, proyectos_realizados_luis } from '../app.state';
 >
 */
 
-const MenuComponent: React.FC = () => {
+const MenuComponent2: React.FC = () => {
     const { t, i18n } = useTranslation();
     const [expanded, setExpanded] = useState(false);
     const [temaSeleccionado, setTemaSeleccionado] = useState<string>('tema-oscuro');
@@ -212,6 +212,92 @@ const MenuComponent: React.FC = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+        </header>
+    );
+};
+
+const MenuComponent: React.FC = () => {
+    const { t, i18n } = useTranslation();
+    const [expanded, setExpanded] = useState(false);
+    const [temaSeleccionado, setTemaSeleccionado] = useState<string>('tema-oscuro');
+    const [langs] = useState<string[]>(['es', 'en']);
+    const [temas] = useState([
+        { valor: 'tema-claro', etiqueta: 'Tema Claro' },
+        { valor: 'tema-oscuro', etiqueta: 'Tema Oscuro' }
+    ]);
+
+    useEffect(() => {
+        const temaGuardado = localStorage.getItem('tema');
+        if (temaGuardado) {
+            setTemaSeleccionado(temaGuardado);
+            aplicarTema(temaGuardado);
+        } else {
+            aplicarTema('tema-oscuro');
+        }
+        
+        i18n.changeLanguage('es');
+    }, [i18n]);
+
+    const aplicarTema = (tema: string) => {
+        document.body.classList.remove('tema-claro', 'tema-oscuro');
+        document.body.classList.add(tema);
+    };
+
+    const cambiarTema = (tema: string) => {
+        setTemaSeleccionado(tema);
+        aplicarTema(tema);
+        localStorage.setItem('tema', tema);
+    };
+
+    const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+        const language = e.target.value;
+        i18n.changeLanguage(language);
+    };
+
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log('Buscando...');
+    };
+
+    const getNavbarClasses = () => {
+        const baseClass = 'navbar navbar-expand-lg fixed-top';
+        if (temaSeleccionado === 'tema-oscuro') {
+            return `${baseClass} navbar-light bg-light`;
+        } else {
+            return `${baseClass} navbar-dark bg-dark`;
+        }
+    };
+
+    return (
+        <header class="container-fluid" style="font-style: italic;">
+            <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="/">
+                        <img src="https://reactjs.org/logo-og.png" width="50" height="50" alt="" />
+                    </a>
+                    <button 
+                        className="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" 
+                        aria-expanded="false" 
+                        aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+                            <li className="nav-item">
+                                <a className="nav-link" href="/">
+                                    t('inicio)
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </header>
     );
 };
