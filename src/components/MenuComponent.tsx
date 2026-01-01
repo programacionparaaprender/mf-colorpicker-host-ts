@@ -32,7 +32,7 @@ const MenuComponent: React.FC = () => {
   };
 
   const handleSearch = () => {
-    
+
   }
  return (
     <BrowserRouter>
@@ -43,7 +43,7 @@ const MenuComponent: React.FC = () => {
                         {/* Logo */}
                         <Navbar.Brand as={Link} to="/">
                             <img 
-                            src="./favicon.ico" 
+                            src="https://reactjs.org/logo-og.png" 
                             width="50" 
                             height="50" 
                             alt="Logo"
