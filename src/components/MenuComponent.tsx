@@ -85,6 +85,27 @@ const MenuComponent: React.FC = () => {
                         aria-controls="navbarSupportedContent" 
                         onClick={() => setExpanded(!expanded)}
                     />
+
+                    {/* Inicio */}
+                        <Nav.Item>
+                            <Nav.Link as={Link} to="/">{t('inicio')}</Nav.Link>
+                        </Nav.Item>
+                        {/* Presentación */}
+                        <Nav.Item>
+                            <Nav.Link as={Link} to="/presentacion">{t('presentacion')}</Nav.Link>
+                        </Nav.Item>
+                        {/* Google Maps */}
+                        <Nav.Item>
+                            <Nav.Link as={Link} to="/googlemaps">{t('googlemaps')}</Nav.Link>
+                        </Nav.Item>
+                        {/* Home Page */}
+                        <Nav.Item>
+                            <Nav.Link as={Link} to="/homepage">{t('homepage')}</Nav.Link>
+                        </Nav.Item>
+                        {/* User list */}
+                        <Nav.Item>
+                            <Nav.Link as={Link} to="/userlist">{t('userlist')}</Nav.Link>
+                        </Nav.Item>
                     
                     <Navbar.Collapse id="navbarSupportedContent">
                         <Nav className="me-auto mb-2 mb-lg-0">
