@@ -39,7 +39,7 @@ const MenuComponent: React.FC = () => {
                         {/* Logo */}
                         <Navbar.Brand as={Link} to="/">
                             <img 
-                            src="./assets/images/principal.jpg" 
+                            src="./favicon.ico" 
                             width="50" 
                             height="50" 
                             alt="Logo"
