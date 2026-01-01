@@ -10,6 +10,7 @@ import HomePage from 'mf_atomicdesign_ts/HomePage';
 import MyGoogleMap from 'mf_googlemaps_ts/MyGoogleMap';
 import Presentacion from '../Presentacion';
 import useColors from 'mf_colorpicker/useColors';
+import { contactosjs, cursosjs, proyectos_realizados_luis } from '../app.state';
 
 // Tipo para el hook useColors (ajusta según la implementación real)
 type UseColorsReturn = {
@@ -70,7 +71,66 @@ const MenuComponent: React.FC = () => {
                         <Nav.Item>
                             <Nav.Link as={Link} to="/userlist">{t('userlist')}</Nav.Link>
                         </Nav.Item>
+                    {/* Dropdown Cursos */}
+                    <NavDropdown title="Cursos" id="cursos-dropdown">
+                        {cursosjs.map((casa) => (
+                        <NavDropdown.Item 
+                            key={casa.nombre}
+                            as={Link}
+                            to={casa.href}
+                            target={casa.target}
+                        >
+                            {casa.nombre}
+                        </NavDropdown.Item>
+                        ))}
+                    </NavDropdown>
+                
+                        {/* Dropdown Proyectos */}
+                        <NavDropdown title="Proyectos" id="proyectos-dropdown">
+                            {proyectos_realizados_luis.map((casa) => (
+                            <NavDropdown.Item 
+                                key={casa.id}
+                                as={Link}
+                                to={casa.href}
+                                target="_blank"
+                            >
+                                {casa.nombre}
+                            </NavDropdown.Item>
+                            ))}
+                        </NavDropdown>
+                            {/* Dropdown Contactos */}
+                        <NavDropdown title="Contactos" id="contactos-dropdown">
+                            {contactosjs.map((casa) => (
+                            <NavDropdown.Item 
+                                key={casa.id}
+                                as={Link}
+                                to={casa.href}
+                            >
+                                {casa.nombre} - {casa.titulo}
+                            </NavDropdown.Item>
+                            ))}
+                        </NavDropdown>
+                        {/* Acerca de */}
+                        <Nav.Item>
+                            <Nav.Link as={Link} to="/contacto">Acerca de</Nav.Link>
+                        </Nav.Item>
                         </Nav>
+                        {/* Buscador */}
+                        <Form className="d-flex fst-italic me-3" onSubmit={handleSearch}>
+                            <Form.Control
+                                type="search"
+                                placeholder="Buscar"
+                                className="me-2 fst-italic"
+                                aria-label="Search"
+                            />
+                            <Button 
+                                variant="outline-secondary" 
+                                className="fst-italic" 
+                                type="submit"
+                            >
+                                Buscar
+                            </Button>
+                        </Form>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
