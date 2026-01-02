@@ -256,7 +256,7 @@ const App: React.FC = () => {
 // Componente wrapper con tipado
 const AppWithProvider: React.FC = () => (
   <I18nextProvider i18n={i18n}>
-    <App />
+    <App2 />
   </I18nextProvider>
 );
 
