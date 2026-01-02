@@ -52,8 +52,7 @@ function App2() {
     i18n.changeLanguage(language);
   };
   return (
-    <I18nextProvider i18n={i18n}>
-      <Router>
+    <Router>
         <div className="App">
           <MenuComponent />
           <div className="main-content" style={{ paddingTop: '80px' }}>
@@ -86,8 +85,7 @@ function App2() {
             </Routes>
           </div>
         </div>
-      </Router>
-    </I18nextProvider>
+    </Router>
   );
 }
 
