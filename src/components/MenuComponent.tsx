@@ -269,10 +269,10 @@ const MenuComponent: React.FC = () => {
     };
 
     return (
-        <header class="container-fluid" style={{ fontStyle: 'italic' }}>
+        <header className="container-fluid" style={{ fontStyle: 'italic' }}>
             <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <a className="navbar-brandgit" href="/">
                         <img src="https://reactjs.org/logo-og.png" width="50" height="50" alt="" />
                     </a>
                     <button 
