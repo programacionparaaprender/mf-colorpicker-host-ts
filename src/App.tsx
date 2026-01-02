@@ -38,7 +38,7 @@ type UseColorsReturn = {
 };
 
 import MenuComponent from './components/MenuComponent';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App2() {
   const { color, colorListado, handleChangeColor, handleSubmitSaveColor }: UseColorsReturn = useColors();
