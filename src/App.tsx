@@ -16,8 +16,8 @@ import HomePage from "mf_atomicdesign_ts/HomePage";
 
 import UserList from "mf_crm_clients_ts/UserList";
 //import 'bootstrap/dist/css/bootstrap.min.css';
-import "jquery/dist/jquery.js";
-import "@popperjs/core/dist/umd/popper.min.js";
+//import "jquery/dist/jquery.js";
+//import "@popperjs/core/dist/umd/popper.min.js";
 // Definir tipos para los componentes externos (ajusta según sea necesario)
 type ColorPickerProps = {
   color: string;
