@@ -125,7 +125,7 @@ const MenuComponent: React.FC = () => {
                                 </a>
                                 <ul className={`dropdown-menu ${temaSeleccionado === 'tema-oscuro' ? 'dropdown-menu-dark' : ''}`}>
                                     {cursosjs.map((curso) => (
-                                        <li key={curso.id}>
+                                        <li>
                                             <a 
                                                 className="dropdown-item"
                                                 href={curso.href}
