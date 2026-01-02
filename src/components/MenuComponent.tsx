@@ -41,6 +41,7 @@ const MenuComponent: React.FC = () => {
         const language = e.target.value;
         i18n.changeLanguage(language);
     };
+    
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();

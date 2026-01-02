@@ -39,6 +39,7 @@ type UseColorsReturn = {
 };
 
 import MenuComponent from './components/MenuComponent';
+import { cursosjs, proyectos_realizados_luis } from "./app.state";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App2() {
@@ -148,6 +149,57 @@ const App: React.FC = () => {
                   <Link className="nav-link" to="/userlist">
                     {t("userlist")}
                   </Link>
+                </li>
+                {/* Dropdown Cursos con Bootstrap 5 vanilla */}
+                <li className="nav-item dropdown">
+                    <a 
+                        className="nav-link dropdown-toggle"
+                        href="#" 
+                        role="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"
+                    >
+                        Cursos
+                    </a>
+                    <ul className={`dropdown-menu  dropdown-menu-dark`}>
+                        {cursosjs.map((curso) => (
+                            <li>
+                                <a 
+                                    className="dropdown-item"
+                                    href={curso.href}
+                                    target={curso.target}
+                                >
+                                    {curso.nombre}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </li>
+
+                {/* Dropdown Proyectos con Bootstrap 5 vanilla */}
+                <li className="nav-item dropdown">
+                    <a 
+                        className="nav-link dropdown-toggle"
+                        href="#" 
+                        role="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"
+                    >
+                        Proyectos
+                    </a>
+                    <ul className={`dropdown-menu dropdown-menu-dark`}>
+                        {proyectos_realizados_luis.map((proyecto) => (
+                            <li key={proyecto.id}>
+                                <a 
+                                    className="dropdown-item"
+                                    href={proyecto.href}
+                                    target="_blank"
+                                >
+                                    {proyecto.nombre}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                 </li>
               </ul>
              
