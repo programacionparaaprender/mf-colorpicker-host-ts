@@ -291,8 +291,28 @@ const MenuComponent: React.FC = () => {
 
                             <li className="nav-item">
                                 <a className="nav-link" href="/">
-                                    t('inicio)
+                                    {t('inicio')}
                                 </a>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a 
+                                className="nav-link dropdown-toggle"
+                                href="#" 
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                Cursos
+                                </a>
+                                <div className="dropdown-menu dropdown-menu-dark">
+                                    {cursosjs.map((casa) => (
+                                        <a 
+                                            className="dropdown-item"
+                                            target={casa.target}
+                                            href={casa.href}>
+                                            {casa.nombre}
+                                        </a>
+                                    ))}
+                                </div>
                             </li>
                         </ul>
                     </div>
