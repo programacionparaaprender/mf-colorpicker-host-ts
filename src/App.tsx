@@ -42,7 +42,7 @@ import MenuComponent from './components/MenuComponent';
 import { cursosjs, proyectos_realizados_luis } from "./app.state";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App2() {
+function App() {
   const { color, colorListado, handleChangeColor, handleSubmitSaveColor }: UseColorsReturn = useColors();
   
   const { t, i18n } = useTranslation();
@@ -90,173 +90,14 @@ function App2() {
   );
 }
 
-export default App2;
+export default App;
 // Componente principal con tipado
-const App: React.FC = () => {
-  const { color, colorListado, handleChangeColor, handleSubmitSaveColor }: UseColorsReturn = useColors();
-  
-  const { t, i18n } = useTranslation();
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const language = e.target.value;
-    console.log(language);
-    i18n.changeLanguage(language);
-  };
-
-  return (
-    <Router>
-      <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container">
-            <Link className="navbar-brand" to="/">
-              {t('colorpicker')}
-            </Link>
-            <button 
-              className="navbar-toggler" 
-              type="button" 
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav" 
-              aria-controls="navbarNav"
-              aria-expanded="false" 
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">
-                    {t('colorpicker')}
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/presentacion">
-                    {t("presentacion")}
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/googlemaps">
-                    {t("googlemaps")}
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/homepage">
-                    {t("homepage")}
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/userlist">
-                    {t("userlist")}
-                  </Link>
-                </li>
-                {/* Dropdown Cursos con Bootstrap 5 vanilla */}
-                <li className="nav-item dropdown">
-                    <a 
-                        className="nav-link dropdown-toggle"
-                        href="#" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"
-                    >
-                        Cursos
-                    </a>
-                    <ul className={`dropdown-menu  dropdown-menu-dark`}>
-                        {cursosjs.map((curso) => (
-                            <li>
-                                <a 
-                                    className="dropdown-item"
-                                    href={curso.href}
-                                    target={curso.target}
-                                >
-                                    {curso.nombre}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </li>
-
-                {/* Dropdown Proyectos con Bootstrap 5 vanilla */}
-                <li className="nav-item dropdown">
-                    <a 
-                        className="nav-link dropdown-toggle"
-                        href="#" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"
-                    >
-                        Proyectos
-                    </a>
-                    <ul className={`dropdown-menu dropdown-menu-dark`}>
-                        {proyectos_realizados_luis.map((proyecto) => (
-                            <li key={proyecto.id}>
-                                <a 
-                                    className="dropdown-item"
-                                    href={proyecto.href}
-                                    target="_blank"
-                                >
-                                    {proyecto.nombre}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </li>
-              </ul>
-             
-              {/* Selector de idioma */}
-              <div className="d-flex align-items-center ms-3">
-                <select
-                  className="form-select form-select-sm bg-dark text-white border-secondary"
-                  style={{ width: "120px" }}
-                  defaultValue={i18n.language}
-                  onChange={handleLanguageChange}
-                >
-                  <option value="es">ESPAÑOL</option>
-                  <option value="en">ENGLISH</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </nav>
-        
-        
-
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div className="container mt-4">
-                <div className="row">
-                  <div className="col-12 col-md-4 col-xl-4">
-                    <ColorList lista={colorListado} />
-                  </div>
-                  <div className="col-12 col-md-4 col-xl-4">
-                    <ColorPicker
-                      color={color}
-                      colorListado={colorListado}
-                      handleChangeColor={handleChangeColor}
-                      handleSubmitSaveColor={handleSubmitSaveColor}
-                    />
-                  </div>
-                </div>
-              </div>
-            }
-          />
-          <Route path="/presentacion" element={<Presentacion />} />
-          <Route path="/googlemaps" element={<MyGoogleMap />} />
-          <Route path="/homepage" element={<HomePage />} />
-          <Route path="/userlist" element={<UserList />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-};
 
 // Componente wrapper con tipado
 const AppWithProvider: React.FC = () => (
   <I18nextProvider i18n={i18n}>
-    <App2 />
+    <App />
   </I18nextProvider>
 );
 
